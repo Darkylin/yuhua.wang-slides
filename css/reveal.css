@@ -1048,7 +1048,7 @@ html:-moz-full-screen-ancestor {
 .reveal.rtl .slides h5,
 .reveal.rtl .slides h6 {
   direction: rtl;
-  font-family: sans-serif; }
+  font-family: sans-'microsoft yahei'; }
 
 .reveal.rtl pre,
 .reveal.rtl code {
@@ -1296,7 +1296,7 @@ html:-moz-full-screen-ancestor {
   overflow: auto;
   box-sizing: border-box;
   text-align: left;
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica, sans-'microsoft yahei';
   -webkit-overflow-scrolling: touch; }
 
 .reveal .speaker-notes.visible:not(:empty) {

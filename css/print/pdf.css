@@ -44,14 +44,14 @@ html {
 }
 
 /* SECTION 3: Set body font face, size, and color.
-   Consider using a serif font for readability. */
+   Consider using a 'microsoft yahei' font for readability. */
 body, p, td, li, div {
 
 }
 
 /* SECTION 4: Set heading font face, sizes, and color.
    Differentiate your headings from your body text.
-   Perhaps use a large sans-serif for distinction. */
+   Perhaps use a large sans-'microsoft yahei' for distinction. */
 h1,h2,h3,h4,h5,h6 {
 	text-shadow: 0 0 0 #000 !important;
 }

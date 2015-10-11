@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/sky.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="../../lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+        .reveal .ol {
+            margin: 0;
+            word-break: keep-all;
+        }
+
+        .ol > li {
+            margin: 20px 0;
+        }
+
+        .reveal .sub-ol {
+            counter-reset: subol;
+            list-style-type: none;
+        }
+
+        .reveal .sub-ol > li::before {
+            counter-increment: subol;
+            content: '(' counter(subol) ') '
+        }
+    </style>
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>移动端web开发是一种什么样的体验</h1><br/>
+            <h3>to be a Mobile Web Developer</h3>
+            <p>
+                <small>Created by <a href="http://yuhuan.wang">王宇欢</a></small>
+            </p>
+        </section>
+
+        <section>
+            <h2>总纲</h2>
+            <ol class="ol">
+                <li>与PC端的差异</li>
+                <li>用户体验</li>
+                <li>HTML5新特性</li>
+                <li>开发&调试</li>
+                <li>现在与未来</li>
+            </ol>
+        </section>
+
+        <section>
+            <section>
+                <h2>1. 移动端与PC端的差异</h2>
+                <img src="images/1.jpg" alt=""/>
+            </section>
+            <section>
+                <h2>1. 移动端与PC端的差异</h2>
+                <ol class="sub-ol">
+                    <li>屏幕</li>
+                    <li>传感器</li>
+                    <li>性能</li>
+                    <li>交互方式</li>
+                </ol>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>（1）屏幕</h2>
+                <img src="images/4fec98bf44049dba1ec42.jpg" alt=""/>
+                <p>我们是这样使用电脑的</p>
+            </section>
+            <section>
+                <img src="images/45(59).png" alt=""/>
+                <p>我们是这样使用手机的</p>
+            </section>
+            <section>
+                <a href="https://www.youtube.com/watch?v=Hq8j5vsqCCo"><img
+                        src="images/c6076259252dd42a6edfce4a033b5bb5c8eab82e.jpg" alt=""/></a>
+                <p>It turns out there’s a magic number right around 300 pixels per inch, that when you hold something
+                    around to 10 to 12 inches away from your eyes, is the limit of the human retina to differentiate the
+                    pixels.</p>
+            </section>
+            <section>
+                <h2>像素密度 pixel ratio</h2>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio">window.devicePixelRatio</a>
+                </p>
+                <p>IE fallback:<a href="https://msdn.microsoft.com/en-us/library/dn255104(v=vs.85).aspx">window.devicePixelRatio
+                    = window.devicePixelRatio || window.screen.deviceXDPI / window.screen.logicalXDPI;</a></p>
+            </section>
+            <section>
+                <h2><a href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html">viewport</a></h2>
+                <pre><code data-trim><meta content="width=device-width,
+    minimum-scale=1.0,
+    maximum-scale=1.0,
+    user-scalable=no,
+    minimal-ui"
+    name="viewport">
+                    </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>（2）传感器</h2>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>（3）性能</h2>
+                <ul>
+                    <li class="fragment">硬件</li>
+                    <li class="fragment">软件</li>
+                    <li class="fragment">网络环境</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>（4）交互方式</h2>
+                <ul>
+                    <li class="fragment">click 变成 touch</li>
+                    <li class="fragment">没有hover（<a href="http://freinbichler.me/apps/3dtouch/">3d touch</a>）</li>
+                    <li class="fragment">手势</li>
+                    <li class="fragment">语音/视频（<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">mediaStreamTrack</a>，<a
+                            href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/mediaDevices.getUserMedia">getUserMedia</a>）</li>
+                </ul>
+            </section>
+            <section>
+                <h2>手势</h2>
+                <a href="http://www.queness.com/post/11755/11-multi-touch-and-touch-events-javascript-libraries"><img src="images/thumb.jpg" alt=""/></a>
+            </section>
+            <section>
+                <h2>tap穿透</h2>
+            </section>
+        </section>
+
+        <section>
+            <h2>2. 用户体验</h2>
+            <p>富动画</p>
+        </section>
+
+        <section>
+            <h2>3. HTML5新特性</h2>
+        </section>
+
+        <section>
+            <h2>4. 开发&调试</h2>
+        </section>
+
+        <section>
+            <h2>5. 现在与未来</h2>
+        </section>
+    </div>
+
+</div>
+
+<script src="../../lib/js/head.min.js"></script>
+<script src="../../js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: '../../lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: '../../plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: '../../plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: '../../plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector('pre code');
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: '../../plugin/zoom-js/zoom.js', async: true},
+            {src: '../../plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+</body>
+</html>

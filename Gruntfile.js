@@ -102,12 +102,12 @@ module.exports = function(grunt) {
 
 		zip: {
 			'reveal-js-presentation.zip': [
-				'index.html',
 				'css/**',
 				'js/**',
 				'lib/**',
 				'images/**',
-				'plugin/**'
+				'plugin/**',
+				'slides/**/*.html'
 			]
 		},
 
@@ -115,20 +115,20 @@ module.exports = function(grunt) {
 			options: {
 				livereload: true
 			},
-			js: {
-				files: [ 'Gruntfile.js', 'js/reveal.js' ],
-				tasks: 'js'
-			},
-			theme: {
-				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
-				tasks: 'css-themes'
-			},
-			css: {
-				files: [ 'css/reveal.scss' ],
-				tasks: 'css-core'
-			},
+			//js: {
+			//	files: [ 'Gruntfile.js', 'js/reveal.js' ],
+			//	tasks: 'js'
+			//},
+			//theme: {
+			//	files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
+			//	tasks: 'css-themes'
+			//},
+			//css: {
+			//	files: [ 'css/reveal.scss' ],
+			//	tasks: 'css-core'
+			//},
 			html: {
-				files: [ 'index.html']
+				files: 'slides/**/*.html'
 			}
 		}
 
