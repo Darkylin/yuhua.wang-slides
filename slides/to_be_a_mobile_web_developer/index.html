@@ -72,8 +72,7 @@
                 <li>与PC端的差异</li>
                 <li>用户体验</li>
                 <li>HTML5新特性</li>
-                <li>开发&调试</li>
-                <li>现在与未来</li>
+                <li>未来</li>
             </ol>
         </section>
 
@@ -88,6 +87,7 @@
                     <li>屏幕</li>
                     <li>传感器</li>
                     <li>性能</li>
+                    <li>载体多样</li>
                     <li>交互方式</li>
                 </ol>
             </section>
@@ -131,31 +131,81 @@
         <section>
             <section>
                 <h2>（2）传感器</h2>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h2>（3）性能</h2>
                 <ul>
-                    <li class="fragment">硬件</li>
-                    <li class="fragment">浏览器</li>
-                    <li class="fragment">网络环境</li>
+                    <li>GPS</li>
+                    <li>陀螺仪</li>
+                    <li>加速度计</li>
+                    <li>光感传感器</li>
                 </ul>
-                <aside class="notes">
-                    安卓碎片化严重 操作系统内置浏览器 测试
-                </aside>
+            </section>
+            <section>
+                <h2>GPS</h2>
+                <p><a href="">Geolaction sensor</a></p>
+                <pre><code>if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(successCallback, errorCallback, {
+        enableHighAcuracy: true,// 获取高精度的位置，默认为false
+        timeout: 3000,// 超时时间，默认不限时，单位为毫秒
+        maximumAge: 3000// 最长有效期
+    });
+}</code></pre>
+            </section>
+            <section>
+                <h2>地理信息</h2>
+                <p>successCallback</p>
+                <pre><code>function(position){
+    var coords = position.coords;
+        coords.latitude;// 维度
+        coords.longitude;// 经度
+);</code></pre>
+            </section>
+            <section>
+                <h2>地理信息</h2>
+                <p>errorCallback</p>
+                <pre><code>switch(error.code) {
+    case error.TIMEOUT:break;
+    case error.POSITION_UNAVAILABLE:break;
+    case error.PERMISSION_DENIED:break;
+    case error.UNKNOWN_ERROR:break;
+}</code></pre>
+            </section>
+            <section>
+                <h2>现实环境信息（光）</h2>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceLightEvent/Using_light_sensors">Ambient Light sensor</a></p>
+                <pre><code>window.addEventListener('devicelight', function(event) {
+    console.log('The current value of light is ' + event.value + ' lux');
+});</code></pre>
+                <aside class="notes">夏季在阳光直接照射下，光照强度可达6万～10万lx，没有太阳的室外0.1万～1万lx，夏天明朗的室内100～550lx，夜间满月下为0.2lx。</aside>
             </section>
         </section>
         <section>
+            <h2>（3）性能</h2>
+            <ul>
+                <li class="fragment">硬件</li>
+                <li class="fragment">浏览器</li>
+                <li class="fragment">网络环境</li>
+                <li class="fragment">电量</li>
+            </ul>
+        </section>
+        <section>
+            <h2>（4）载体多样</h2>
+            <ul>
+                <li><a href="http://www.guokr.com/article/189002/">安卓碎片化严重</a></li>
+                <li><a href="http://www.infoq.com/cn/news/2013/02/webkit-history-and-now">都叫webkit而已</a></li>
+                <li>嵌入APP各有各的API，如<a href="http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html">微信jssdk</a></li>
+            </ul>
+        </section>
+        <section>
             <section>
-                <h2>（4）交互方式</h2>
+                <h2>（5）交互方式</h2>
                 <ul>
                     <li class="fragment">click 变成 touch</li>
                     <li class="fragment">没有hover（<a href="http://freinbichler.me/apps/3dtouch/">3d touch</a>）</li>
                     <li class="fragment">手势</li>
                     <li class="fragment">语音/视频（<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">mediaStreamTrack</a>，<a
                             href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/mediaDevices.getUserMedia">getUserMedia</a>）</li>
+
                 </ul>
+                <aside class="notes">head mounted display</aside>
             </section>
             <section>
                 <h2>手势</h2>
@@ -170,20 +220,50 @@
         </section>
 
         <section>
-            <h2>2. 用户体验</h2>
-            <p>富动画</p>
+            <section>
+                <h2>2. 用户体验</h2>
+                <p>心理预期与富动画</p>
+            </section>
+            <section>
+
+            </section>
+        </section>
+
+
+        <section>
+            <h2>3. 开发&调试</h2>
         </section>
 
         <section>
-            <h2>3. HTML5新特性</h2>
-        </section>
-
-        <section>
-            <h2>4. 开发&调试</h2>
-        </section>
-
-        <section>
-            <h2>5. 现在与未来</h2>
+            <section>
+                <h2>4. 未来</h2>
+                <dl>
+                    <dt>虚拟现实</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API">WebVR API</a></dd>
+                    <dt>获取手机通讯录信息</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/Contacts_API">Contacts API</a></dd>
+                    <dt>客户端代理</dt>
+                    <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a></dd>
+                    <dt>获得系统信息</dt>
+                    <dd><a href="http://www.w3.org/TR/2010/WD-system-info-api-20100202/#output-devices">System Information API</a></dd>
+                    <dt>语音TTS & STT</dt>
+                    <dd><a href="http://www.smashingmagazine.com/2014/12/enhancing-ux-with-the-web-speech-api/">Speach Input API</a></dd>
+                    <dt><a href="http://matthew.wagerfield.com/flat-surface-shader/">css shader</a></dt>
+                    <dd></dd>
+                </dl>
+            </section>
+            <section>
+                <h2>System Info API</h2>
+                <img src="images/properties.png" alt=""/>
+            </section>
+            <section>
+                <h2>ES5 & ES6</h2>
+                <ul>
+                    <li><a href="https://github.com/github/fetch">fetch</a></li>
+                    <li><a href="https://github.com/jakearchibald/es6-promise">promise</a></li>
+                    <li><a href="https://github.com/inexorabletash/polyfill/blob/master/es5.md">ES5 polyfill</a></li>
+                </ul>
+            </section>
         </section>
     </div>
 
